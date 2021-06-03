@@ -1,13 +1,13 @@
 const { gql } = require('apollo-server-express');
 
 module.exports = gql`
-    type Query {
+    extend type Query {
         actions: [Action!]
     }
 
     type Action {
         id: ID!
-        name: String!
+        title: String!
         description: String!
         notes: [Note!]
         isReady: Boolean!

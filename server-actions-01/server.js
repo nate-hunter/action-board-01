@@ -4,6 +4,9 @@ const cors = require('cors');
 const dotEnv = require('dotenv');
 
 
+const resolvers = require('./resolvers');
+const typeDefs = require('./typeDefs');
+
 dotEnv.config();
 
 const app = express();
@@ -12,17 +15,17 @@ app.use(cors());
 
 app.use(express.json());
 
-const typeDefs = gql`
-    type Query {
-        test: String!
-    }
-`;
+// const typeDefs = gql`
+//     type Query {
+//         test: String!
+//     }
+// `;
 
-const resolvers = {
-    Query: {
-        test: () => "Test query for a string"
-    }
-}
+// const resolvers = {
+//     Query: {
+//         test: () => "Test query for a string"
+//     }
+// }
 
 const apolloServer = new ApolloServer({
     typeDefs,
